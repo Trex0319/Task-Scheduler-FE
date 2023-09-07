@@ -8,7 +8,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const fetchCategory = async (name = "") => {
   const response = await axios.get(
-    "http://localhost:2000/categories?" + (name !== "" ? "name=" + name : "")
+    "http://localhost:2000/category?" + (name !== "" ? "name=" + name : "")
   );
   return response.data;
 };

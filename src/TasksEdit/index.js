@@ -16,14 +16,14 @@ import { notifications } from "@mantine/notifications";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 
 const getTask = async (id) => {
-  const response = await axios.get("http://localhost:2000/tasks/" + id);
+  const response = await axios.get("http://localhost:2000/task/" + id);
   return response.data;
 };
 
 const updateTask = async ({ id, data }) => {
   const response = await axios({
     method: "PUT",
-    url: "http://localhost:2000/tasks/" + id,
+    url: "http://localhost:2000/task/" + id,
     headers: { "Content-Type": "application/json" },
     data: data,
   });

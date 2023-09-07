@@ -14,14 +14,14 @@ import { notifications } from "@mantine/notifications";
 import { useQuery, useMutation } from "@tanstack/react-query";
 
 const getTask = async (id) => {
-  const response = await axios.get("http://localhost:2000/tasks" + id);
+  const response = await axios.get("http://localhost:2000/task" + id);
   return response.data;
 };
 
 const addCategory = async (data) => {
   const response = await axios({
     method: "POST",
-    url: "http://localhost:2000/categories",
+    url: "http://localhost:2000/category",
     headers: {
       "Content-Type": "application/json",
     },

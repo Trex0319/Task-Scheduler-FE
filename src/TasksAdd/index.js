@@ -15,14 +15,14 @@ import axios from "axios";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 
 const getCategory = async (id) => {
-  const response = await axios.get("http://localhost:2000/categories/" + id);
+  const response = await axios.get("http://localhost:2000/category/" + id);
   return response.data;
 };
 
 const addTasks = async (data) => {
   const response = await axios({
     method: "POST",
-    url: "http://localhost:2000/tasks",
+    url: "http://localhost:2000/task",
     headers: { "Content-Type": "application/json" },
     data: data,
   });

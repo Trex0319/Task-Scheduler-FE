@@ -16,14 +16,14 @@ import { notifications } from "@mantine/notifications";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 
 const fetchTasks = async () => {
-  const response = await axios.get("http://localhost:2000/tasks");
+  const response = await axios.get("http://localhost:2000/task");
   return response.data;
 };
 
 const deleteTasks = async (task_id = "") => {
   const response = await axios({
     method: "DELETE",
-    url: "http://localhost:2000/tasks/" + task_id,
+    url: "http://localhost:2000/task/" + task_id,
   });
   return response.data;
 };
