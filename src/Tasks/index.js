@@ -42,18 +42,18 @@ export default function Task() {
     queryFn: () => fetchTasks(),
   });
 
-  const memoryTasks = queryClient.getQueryData(["tasks"]);
-  const priorityOptions = useMemo(() => {
-    let options = [];
-    if (tasks && tasks.length > 0) {
-      tasks.forEach((task) => {
-        if (!options.includes(task.priority)) {
-          options.push(task.priority);
-        }
-      });
-    }
-    return options;
-  }, [memoryTasks]);
+  // const memoryTasks = queryClient.getQueryData(["tasks"]);
+  // const priorityOptions = useMemo(() => {
+  //   let options = [];
+  //   if (tasks && tasks.length > 0) {
+  //     tasks.forEach((task) => {
+  //       if (!options.includes(task.priority)) {
+  //         options.push(task.priority);
+  //       }
+  //     });
+  //   }
+  //   return options;
+  // }, [memoryTasks]);
 
   const deleteMutation = useMutation({
     mutationFn: deleteTasks,
@@ -106,7 +106,7 @@ export default function Task() {
                   <tr key={task._id}>
                     <td>{task.title}</td>
                     <td>{task.description}</td>
-                    <td>{task.dueDate}</td>
+                    <td>{task.dueDate.split("T")[0]}</td>
                     <td>{task.status}</td>
                     <td>{task.priority}</td>
                     <td>{task.category.name}</td>

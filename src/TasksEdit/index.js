@@ -46,7 +46,7 @@ function TasksEdit() {
     onSuccess: (data) => {
       setTitle(data.title);
       setDescription(data.description);
-      setDueDate(data.dueDate);
+      setDueDate(data.dueDate.split("T")[0]);
       setStatus(data.status);
       setPriority(data.priority);
       setCategory(data.category);

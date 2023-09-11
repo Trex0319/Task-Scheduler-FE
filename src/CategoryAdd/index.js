@@ -33,21 +33,13 @@ const addCategory = async (data) => {
 function CategoryAdd() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [task, setTask] = useState([]);
   const [name, setName] = useState("");
-  const { data } = useQuery({
-    queryKey: ["task", id],
-    queryFn: () => getTask(id),
-    onSuccess: (data) => {
-      setTask(data.id);
-    },
-  });
 
   const createMutation = useMutation({
     mutationFn: addCategory,
     onSuccess: () => {
       notifications.show({
-        title: "Shopping Added",
+        title: "Tasks Added",
         color: "green",
       });
       navigate("/");
@@ -64,7 +56,6 @@ function CategoryAdd() {
     event.preventDefault();
     createMutation.mutate(
       JSON.stringify({
-        task: task,
         name: name,
       })
     );
